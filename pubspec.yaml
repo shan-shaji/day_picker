@@ -1,7 +1,7 @@
 name: day_picker
 description: A Flutter widget library which helps us to select days in a week.
 version: 0.0.1
-author: Shan Shaji<shanshaji224@gmail.com>
+author: Shan Shaji <shanshaji224@gmail.com>
 homepage: https://github.com/shan-shaji/day_picker
 
 environment:
