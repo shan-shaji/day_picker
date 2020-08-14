@@ -47,7 +47,7 @@ Example here creates a `day_picker` with below style [with Gradient and no borde
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: WeekDayPicker(
+          child: SelectWeekDays(
             border: false,
             boxDecoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30.0),
