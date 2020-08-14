@@ -1,6 +1,6 @@
 # Day Picker
 
-A Flutter Example which helps us to select days in a week.
+A Flutter widget library which helps us to select days in a week.
 
 ## Screenshot
 
