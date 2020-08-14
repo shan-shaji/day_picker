@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: WeekDayPicker(
+            child: SelectWeekDays(
               onSelect: (values) {
                 print(values);
               },
@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: WeekDayPicker(
+            child: SelectWeekDays(
               border: false,
               boxDecoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30.0),
@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: WeekDayPicker(
+            child: SelectWeekDays(
               boxDecoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30.0),
                 gradient: LinearGradient(
@@ -62,7 +62,7 @@ class HomePage extends StatelessWidget {
               },
             ),
           ),
-          WeekDayPicker(
+          SelectWeekDays(
             backgroundColor: Color(0xFF303030),
             onSelect: (values) {
               print(values);
@@ -70,7 +70,7 @@ class HomePage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: WeekDayPicker(
+            child: SelectWeekDays(
               border: false,
               backgroundColor: Color(0xFF303030),
               onSelect: (values) {
@@ -80,7 +80,7 @@ class HomePage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: WeekDayPicker(
+            child: SelectWeekDays(
               border: false,
               boxDecoration: BoxDecoration(
                 color: Colors.red,

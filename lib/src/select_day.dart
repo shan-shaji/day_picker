@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:day_picker/model/day_in_week.dart';
 
-class WeekDayPicker extends StatefulWidget {
+class SelectWeekDays extends StatefulWidget {
   // [onSelect] callBack to handle the Selected days
   final Function onSelect;
 
@@ -22,7 +22,7 @@ class WeekDayPicker extends StatefulWidget {
 // [boxDecoration] to handle the decoration of the container.
   final BoxDecoration boxDecoration;
 
-  WeekDayPicker({
+  SelectWeekDays({
     @required this.onSelect,
     this.backgroundColor,
     this.daysFillColor,
@@ -34,10 +34,10 @@ class WeekDayPicker extends StatefulWidget {
   }) : assert(onSelect != null);
 
   @override
-  _WeekDayPickerState createState() => _WeekDayPickerState();
+  _SelectWeekDaysState createState() => _SelectWeekDaysState();
 }
 
-class _WeekDayPickerState extends State<WeekDayPicker> {
+class _SelectWeekDaysState extends State<SelectWeekDays> {
   // list to insert the selected days.
   List<String> selectedDays = [];
 
