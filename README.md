@@ -90,3 +90,8 @@ void handleOnSelect(List<String> value){
 | selectedDayTextColor   | `Color`         | property to change the text color of the selected days                                        |
 | unSelectedDayTextColor | `Color`         | property to change the text color when the days are not selected                              |
 | border                 | `bool`          | Set true if you want border around the rounded buttons[by default this property will be true] |
+
+
+## Contributions
+
+Contributions of any kind are more than welcome😊! Feel free to fork and improve `day_picker` or open an issue.
