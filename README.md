@@ -20,7 +20,7 @@ import 'package:day_picker/day_picker.dart';
 Constructor for the `day_picker` is given below.
 
 ```dart
-  SelectWeekDays({
+    SelectWeekDays({
     @required this.onSelect,
     this.backgroundColor,
     this.daysFillColor,
@@ -29,7 +29,10 @@ Constructor for the `day_picker` is given below.
     this.unSelectedDayTextColor,
     this.border = true,
     this.boxDecoration,
-  }) : assert(onSelect != null);
+    this.padding = 8.0,
+    Key key,
+  })  : assert(onSelect != null),
+        super(key: key);
 ```
 
 Example here creates a `day_picker` with below style [with Gradient and no borders].
@@ -80,16 +83,17 @@ void handleOnSelect(List<String> value){
 
 ## Customization
 
-| Property               | Type            | Description                                                                                   |
-| ---------------------- | --------------- | --------------------------------------------------------------------------------------------- |
-| onSelect               | List`<String>`  | Callback invoked when days are selected                                                       |
-| boxdecoration          | `BoxDecoration` | provides variety of ways to style the background container[gradient, color, border radius]    |
-| backgroundColor        | `Color`         | Property to change the color of the container                                                 |
-| daysFillColor          | `Color`         | Property to change the color of rounded buttons when the days are selected                    |
-| daysBorderColor        | `Color`         | Property to change the border color of rounded button                                         |
-| selectedDayTextColor   | `Color`         | property to change the text color of the selected days                                        |
-| unSelectedDayTextColor | `Color`         | property to change the text color when the days are not selected                              |
-| border                 | `bool`          | Set true if you want border around the rounded buttons[by default this property will be true] |
+| Property               | Type            | Description                                                                                                          |
+| ---------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------- |
+| onSelect               | List`<String>`  | Callback invoked when days are selected                                                                              |
+| padding                | `double`        | Padding between container and the buttons [by default it is 8.0]                                                     |
+| boxdecoration          | `BoxDecoration` | provides variety of ways to style the background container[gradient, color, border radius]                           |
+| backgroundColor        | `Color`         | Property to change the color of the container                                                                        |
+| daysFillColor          | `Color`         | Property to change the color of rounded buttons when the days are selected                                           |
+| daysBorderColor        | `Color`         | Property to change the border color of rounded button                                                                |
+| selectedDayTextColor   | `Color`         | property to change the text color of the selected days                                                               |
+| unSelectedDayTextColor | `Color`         | property to change the text color when the days are not selected                                                     |
+| border                 | `bool`          | Set this property to false if border is not needed around the rounded buttons[by default this property will be true] |
 
 ## Contributions
 

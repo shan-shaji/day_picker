@@ -21,7 +21,8 @@ class SelectWeekDays extends StatefulWidget {
 
 // [boxDecoration] to handle the decoration of the container.
   final BoxDecoration boxDecoration;
-
+// [padding] property  to handle the padding between the container and buttons by default it is 8.0
+  final double padding;
   SelectWeekDays({
     @required this.onSelect,
     this.backgroundColor,
@@ -31,7 +32,10 @@ class SelectWeekDays extends StatefulWidget {
     this.unSelectedDayTextColor,
     this.border = true,
     this.boxDecoration,
-  }) : assert(onSelect != null);
+    this.padding = 8.0,
+    Key key,
+  })  : assert(onSelect != null),
+        super(key: key);
 
   @override
   _SelectWeekDaysState createState() => _SelectWeekDaysState();
@@ -138,7 +142,7 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
             )
           : widget.boxDecoration,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(widget.padding),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: _days.map(
