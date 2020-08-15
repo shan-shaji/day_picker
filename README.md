@@ -11,7 +11,15 @@ A Flutter widget library which helps us to select days in a week.
 
 ## Usage
 
-Add `day_picker` to your `pubspec.yaml` and import the package:
+Add `day_picker` to your `pubspec.yaml` file.
+
+```dependencies:
+    flutter:
+      sdk: flutter
+    day_picker: 1.0.0
+```
+
+import the package:
 
 ```dart
 import 'package:day_picker/day_picker.dart';
