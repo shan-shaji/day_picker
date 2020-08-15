@@ -67,7 +67,7 @@ Example here creates a `day_picker` with below style [with Gradient and no borde
     );
 ```
 
-Pass a callback to the `onSelect` property with a parameter of type `List<String>`.
+Pass a callback to the `onSelect` property with parameter of type `List<String>`.
 
 Example:
 
@@ -90,7 +90,6 @@ void handleOnSelect(List<String> value){
 | selectedDayTextColor   | `Color`         | property to change the text color of the selected days                                        |
 | unSelectedDayTextColor | `Color`         | property to change the text color when the days are not selected                              |
 | border                 | `bool`          | Set true if you want border around the rounded buttons[by default this property will be true] |
-
 
 ## Contributions
 
