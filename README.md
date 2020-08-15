@@ -5,8 +5,8 @@ A Flutter widget library which helps us to select days in a week.
 ## Screenshot
 
 <p>
-<img src="https://github.com/shan-shaji/select_week_days/blob/master/screenshot/screenshot.jpg" alt="Screenshot week day picker" width="250">
-<img src="https://github.com/shan-shaji/select_week_days/blob/master/screenshot/animate.gif" alt="Screenshot week day picker" width="250">
+<img src="https://raw.githubusercontent.com/shan-shaji/day_picker/master/screenshots/screenshot.jpg" alt="Screenshot week day picker" width="250">
+<img src="https://raw.githubusercontent.com/shan-shaji/day_picker/master/screenshots/animate.gif" alt="Screenshot week day picker" width="250">
 </p>
 
 ## Usage
@@ -45,7 +45,7 @@ Constructor for the `day_picker` is given below.
 
 Example here creates a `day_picker` with below style [with Gradient and no borders].
 
-<img src="https://github.com/shan-shaji/select_week_days/blob/master/screenshot/screenshot2.jpg" alt="Screenshot week day picker" width="250">
+<img src="https://raw.githubusercontent.com/shan-shaji/day_picker/master/screenshots/screenshot2.jpg" alt="Screenshot week day picker" width="250">
 
 ```dart
 
