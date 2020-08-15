@@ -16,7 +16,7 @@ Add `day_picker` to your `pubspec.yaml` file.
 ```dependencies:
     flutter:
       sdk: flutter
-    day_picker: 1.0.0
+    day_picker: 1.0.1
 ```
 
 import the package:
