@@ -1,3 +1,7 @@
+## [1.1.0] - 2021-09-09
+
+* Add sound null safety support
+
 ## [1.0.1] - 2020-08-15
 
 `Fixed Link Issues in [Readme.md] and added Example to Single file.`
