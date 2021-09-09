@@ -6,7 +6,7 @@ class SelectWeekDays extends StatefulWidget {
   final Function onSelect;
 
   // [backgroundColor] - property to change the color of the container.
-  final Color backgroundColor,
+  final Color? backgroundColor,
       // [daysFillColor] -  property to change the button color of days when the button is pressed.
       daysFillColor,
       // [daysBorderColor] - property to change the bordercolor of the rounded buttons.
@@ -20,11 +20,11 @@ class SelectWeekDays extends StatefulWidget {
   final bool border;
 
 // [boxDecoration] to handle the decoration of the container.
-  final BoxDecoration boxDecoration;
+  final BoxDecoration? boxDecoration;
 // [padding] property  to handle the padding between the container and buttons by default it is 8.0
   final double padding;
   SelectWeekDays({
-    @required this.onSelect,
+    required this.onSelect,
     this.backgroundColor,
     this.daysFillColor,
     this.daysBorderColor,
@@ -33,8 +33,8 @@ class SelectWeekDays extends StatefulWidget {
     this.border = true,
     this.boxDecoration,
     this.padding = 8.0,
-    Key key,
-  })  : assert(onSelect != null),
+    Key? key,
+  }) :
         super(key: key);
 
   @override
@@ -84,11 +84,10 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
     widget.onSelect(selectedDays.toList());
   }
 
-//====================================================================================//
-//  Handles color of widgets.
+  //  Handles color of widgets.
 
 // getter to handle background color of container.
-  Color get _handleBackgroundColor {
+  Color? get _handleBackgroundColor {
     if (widget.backgroundColor == null) {
       return Theme.of(context).accentColor;
     } else {
@@ -97,7 +96,7 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
   }
 
 // getter to handle fill color of buttons.
-  Color get _handleDaysFillColor {
+  Color? get _handleDaysFillColor {
     if (widget.daysFillColor == null) {
       return Colors.white;
     } else {
@@ -106,7 +105,7 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
   }
 
 //getter to handle border color of days[buttons].
-  Color get _handleBorderColorOfDays {
+  Color? get _handleBorderColorOfDays {
     if (widget.daysBorderColor == null) {
       return Colors.white;
     } else {
@@ -115,7 +114,7 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
   }
 
 // Handler to change the text color when the button is pressed and not pressed.
-  Color _handleTextColor(bool onSelect) {
+  Color? _handleTextColor(bool onSelect) {
     if (onSelect == true) {
       if (widget.selectedDayTextColor == null) {
         return Colors.black;
@@ -130,7 +129,7 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
       }
     }
   }
-//====================================================================================//
+
 
   @override
   Widget build(BuildContext context) {
@@ -154,7 +153,7 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
                   shape: CircleBorder(
                     side: widget.border
                         ? BorderSide(
-                            color: _handleBorderColorOfDays,
+                            color: _handleBorderColorOfDays!,
                             width: 2.0,
                           )
                         : BorderSide.none,
