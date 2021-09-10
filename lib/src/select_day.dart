@@ -1,33 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:day_picker/model/day_in_week.dart';
 
-
-
-
 class SelectWeekDays extends StatefulWidget {
   /// [onSelect] callBack to handle the Selected days
   final Function onSelect;
 
+  /// List of days of type `DayInWeek`
   List<DayInWeek> days;
 
   /// [backgroundColor] - property to change the color of the container.
-  final Color? backgroundColor,
-      /// [daysFillColor] -  property to change the button color of days when the button is pressed.
-      daysFillColor,
-      /// [daysBorderColor] - property to change the bordercolor of the rounded buttons.
-      daysBorderColor,
-      /// [selectedDayTextColor] - property to change the color of text when the day is selected.
-      selectedDayTextColor,
-      /// [unSelectedDayTextColor] - property to change the text color when the day is not selected.
-      unSelectedDayTextColor;
+  final Color? backgroundColor;
 
-/// [border] Boolean to handle the day button border by default the border will be true.
+  /// [daysFillColor] -  property to change the button color of days when the button is pressed.
+  final Color? daysFillColor;
+
+  /// [daysBorderColor] - property to change the bordercolor of the rounded buttons.
+  final Color? daysBorderColor;
+
+  /// [selectedDayTextColor] - property to change the color of text when the day is selected.
+  final Color? selectedDayTextColor;
+
+  /// [unSelectedDayTextColor] - property to change the text color when the day is not selected.
+  final Color? unSelectedDayTextColor;
+
+  /// [border] Boolean to handle the day button border by default the border will be true.
   final bool border;
 
-/// [boxDecoration] to handle the decoration of the container.
+  /// [boxDecoration] to handle the decoration of the container.
   final BoxDecoration? boxDecoration;
-/// [padding] property  to handle the padding between the container and buttons by default it is 8.0
+
+  /// [padding] property  to handle the padding between the container and buttons by default it is 8.0
   final double padding;
+
+  /// `SelectWeekDays` takes a list of days of type `DayInWeek`.
+  /// `onSelect` property will return `list` of days that are selected.
   SelectWeekDays({
     required this.onSelect,
     this.backgroundColor,
@@ -78,7 +84,6 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
     // [onSelect] is the callback which passes the Selected days as list.
     widget.onSelect(selectedDays.toList());
   }
-
 
 // getter to handle background color of container.
   Color? get _handleBackgroundColor {

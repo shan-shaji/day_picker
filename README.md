@@ -58,6 +58,8 @@ Example here creates a `day_picker` with below style [with Gradient and no borde
     ),
     DayInWeek(
       "Tue",
+      isSelected: true
+
     ),
     DayInWeek(
       "Wed",
@@ -70,7 +72,6 @@ Example here creates a `day_picker` with below style [with Gradient and no borde
     ),
     DayInWeek(
       "Sat",
-      isSelected: true
     ),
   ];
 
@@ -122,7 +123,7 @@ class DayInWeek {
 ```
 
 `DayInWeek` consist of two Properties [dayName] and [isSelected].
-By default [isSelected] value will be false
+By default [isSelected] value will be `false`
 
 ---
 
