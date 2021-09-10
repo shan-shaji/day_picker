@@ -1,19 +1,24 @@
-## [1.1.0] - 2021-09-09
+## 2.0.0
+- Add Breaking Changes
+- Add new `days` property
+- Docs Update
 
-* Add sound null safety support
+## 1.1.0 
 
-## [1.0.1] - 2020-08-15
+- Add sound null safety support
 
-`Fixed Link Issues in [Readme.md] and added Example to Single file.`
+## 1.0.1
 
-## [1.0.0] - 2020-08-15
+- `Fixed Link Issues in [Readme.md] and added Example to Single file.`
 
-`Intitial Release.`
+## 1.0.0 
 
-## [0.2.0] - 2020-08-15
+- `Intitial Release.`
 
-`padding added.`
+## 0.2.0
 
-## [0.1.0] - 2020-08-15
+- `padding added.`
 
-`Intial Development Release.`
+## 0.1.0 
+
+- `Intial Development Release.`
