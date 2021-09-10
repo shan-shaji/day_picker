@@ -1,27 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:day_picker/model/day_in_week.dart';
 
+
+
 class SelectWeekDays extends StatefulWidget {
-  // [onSelect] callBack to handle the Selected days
+  /// [onSelect] callBack to handle the Selected days
   final Function onSelect;
 
-  // [backgroundColor] - property to change the color of the container.
+  List<DayInWeek> days;
+
+  /// [backgroundColor] - property to change the color of the container.
   final Color? backgroundColor,
-      // [daysFillColor] -  property to change the button color of days when the button is pressed.
+      /// [daysFillColor] -  property to change the button color of days when the button is pressed.
       daysFillColor,
-      // [daysBorderColor] - property to change the bordercolor of the rounded buttons.
+      /// [daysBorderColor] - property to change the bordercolor of the rounded buttons.
       daysBorderColor,
-      // [selectedDayTextColor] - property to change the color of text when the day is selected.
+      /// [selectedDayTextColor] - property to change the color of text when the day is selected.
       selectedDayTextColor,
-      // [unSelectedDayTextColor] - property to change the text color when the day is not selected.
+      /// [unSelectedDayTextColor] - property to change the text color when the day is not selected.
       unSelectedDayTextColor;
 
-// [border] Boolean to handle the day button border by default the border will be true.
+/// [border] Boolean to handle the day button border by default the border will be true.
   final bool border;
 
-// [boxDecoration] to handle the decoration of the container.
+/// [boxDecoration] to handle the decoration of the container.
   final BoxDecoration? boxDecoration;
-// [padding] property  to handle the padding between the container and buttons by default it is 8.0
+/// [padding] property  to handle the padding between the container and buttons by default it is 8.0
   final double padding;
   SelectWeekDays({
     required this.onSelect,
@@ -33,42 +37,32 @@ class SelectWeekDays extends StatefulWidget {
     this.border = true,
     this.boxDecoration,
     this.padding = 8.0,
+    required this.days,
     Key? key,
-  }) :
-        super(key: key);
+  }) : super(key: key);
 
   @override
-  _SelectWeekDaysState createState() => _SelectWeekDaysState();
+  _SelectWeekDaysState createState() => _SelectWeekDaysState(days);
 }
 
 class _SelectWeekDaysState extends State<SelectWeekDays> {
+  _SelectWeekDaysState(List<DayInWeek> days) : _daysInWeek = days;
+
   // list to insert the selected days.
   List<String> selectedDays = [];
 
   // list of days in a week.
-  List<DayInWeek> _days = [
-    DayInWeek(
-      "Sunday",
-    ),
-    DayInWeek(
-      "Monday",
-    ),
-    DayInWeek(
-      "Tuesday",
-    ),
-    DayInWeek(
-      "Wednesday",
-    ),
-    DayInWeek(
-      "Thursday",
-    ),
-    DayInWeek(
-      "Friday",
-    ),
-    DayInWeek(
-      "Saturday",
-    ),
-  ];
+  List<DayInWeek> _daysInWeek = [];
+
+  @override
+  void initState() {
+    _daysInWeek.forEach((element) {
+      if (element.isSelected) {
+        selectedDays.add(element.dayName);
+      }
+    });
+    super.initState();
+  }
 
   void _getSelectedWeekDays(bool isSelected, String day) {
     if (isSelected == true) {
@@ -84,7 +78,6 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
     widget.onSelect(selectedDays.toList());
   }
 
-  //  Handles color of widgets.
 
 // getter to handle background color of container.
   Color? get _handleBackgroundColor {
@@ -130,7 +123,6 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -144,7 +136,7 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
         padding: EdgeInsets.all(widget.padding),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: _days.map(
+          children: _daysInWeek.map(
             (day) {
               return Expanded(
                 child: RawMaterialButton(
