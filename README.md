@@ -16,7 +16,7 @@ Add `day_picker` to your `pubspec.yaml` file.
 ```dependencies:
     flutter:
       sdk: flutter
-    day_picker: 1.0.1
+    day_picker: 2.0.0
 ```
 
 import the package:
@@ -29,7 +29,7 @@ Constructor for the `day_picker` is given below.
 
 ```dart
     SelectWeekDays({
-    @required this.onSelect,
+    required this.onSelect,
     this.backgroundColor,
     this.daysFillColor,
     this.daysBorderColor,
@@ -38,9 +38,9 @@ Constructor for the `day_picker` is given below.
     this.border = true,
     this.boxDecoration,
     this.padding = 8.0,
-    Key key,
-  })  : assert(onSelect != null),
-        super(key: key);
+    required this.days,
+    Key? key,
+  }) : super(key: key);
 ```
 
 Example here creates a `day_picker` with below style [with Gradient and no borders].
@@ -48,6 +48,31 @@ Example here creates a `day_picker` with below style [with Gradient and no borde
 <img src="https://raw.githubusercontent.com/shan-shaji/day_picker/master/screenshots/screenshot2.jpg" alt="Screenshot week day picker" width="250">
 
 ```dart
+
+    List<DayInWeek> _days = [
+    DayInWeek(
+      "Sun",
+    ),
+    DayInWeek(
+      "Mon",
+    ),
+    DayInWeek(
+      "Tue",
+    ),
+    DayInWeek(
+      "Wed",
+    ),
+    DayInWeek(
+      "Thu",
+    ),
+    DayInWeek(
+      "Fri",
+    ),
+    DayInWeek(
+      "Sat",
+      isSelected: true
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +84,7 @@ Example here creates a `day_picker` with below style [with Gradient and no borde
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SelectWeekDays(
+            days: _days
             border: false,
             boxDecoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30.0),
@@ -80,6 +106,26 @@ Example here creates a `day_picker` with below style [with Gradient and no borde
 
 Pass a callback to the `onSelect` property with parameter of type `List<String>`.
 
+---
+
+Pass a list of days of type `DayInWeek` into `days` property
+
+```dart
+class DayInWeek {
+
+  String dayName;
+  bool isSelected = false;
+
+  DayInWeek(this.dayName, {this.isSelected = false});
+}
+
+```
+
+`DayInWeek` consist of two Properties [dayName] and [isSelected].
+By default [isSelected] value will be false
+
+---
+
 Example:
 
 ```dart
@@ -94,6 +140,7 @@ void handleOnSelect(List<String> value){
 | Property               | Type            | Description                                                                                                          |
 | ---------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------- |
 | onSelect               | List`<String>`  | Callback invoked when days are selected                                                                              |
+| days |   List`<DayInWeek>` | List of days that need to be passed
 | padding                | `double`        | Padding between container and the buttons [by default it is 8.0]                                                     |
 | boxdecoration          | `BoxDecoration` | provides variety of ways to style the background container[gradient, color, border radius]                           |
 | backgroundColor        | `Color`         | Property to change the color of the container                                                                        |

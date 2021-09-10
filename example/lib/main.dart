@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  
+
   List<DayInWeek> _days = [
     DayInWeek(
       "Sun",
