@@ -59,7 +59,6 @@ Example here creates a `day_picker` with below style [with Gradient and no borde
     DayInWeek(
       "Tue",
       isSelected: true
-
     ),
     DayInWeek(
       "Wed",
