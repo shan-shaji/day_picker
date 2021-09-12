@@ -2,6 +2,8 @@
 
 A Flutter widget library which helps us to select days in a week.
 
+[![Test, Build and deploy](https://github.com/shan-shaji/day_picker/actions/workflows/main.yaml/badge.svg)](https://github.com/shan-shaji/day_picker/actions/workflows/main.yaml)
+
 ## Screenshot
 
 <p>
