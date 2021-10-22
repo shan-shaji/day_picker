@@ -33,6 +33,8 @@ Constructor for the `day_picker` is given below.
     SelectWeekDays({
     required this.onSelect,
     this.backgroundColor,
+    this.fontWeight
+    this.fontSize
     this.daysFillColor,
     this.daysBorderColor,
     this.selectedDayTextColor,
@@ -86,6 +88,8 @@ Example here creates a `day_picker` with below style [with Gradient and no borde
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SelectWeekDays(
+            fontSize:14,
+            fontWeight: FontWeight.w500,
             days: _days
             border: false,
             boxDecoration: BoxDecoration(
@@ -146,6 +150,8 @@ void handleOnSelect(List<String> value){
 | padding                | `double`        | Padding between container and the buttons [by default it is 8.0]                                                     |
 | boxdecoration          | `BoxDecoration` | provides variety of ways to style the background container[gradient, color, border radius]                           |
 | backgroundColor        | `Color`         | Property to change the color of the container                                                                        |
+| fontSize               | `double`     | Property to change size of font                                                                     |
+| fontWeight             | `FontWeight`    | Property to change the font weight of text                                             |
 | daysFillColor          | `Color`         | Property to change the color of rounded buttons when the days are selected                                           |
 | daysBorderColor        | `Color`         | Property to change the border color of rounded button                                                                |
 | selectedDayTextColor   | `Color`         | property to change the text color of the selected days                                                               |
