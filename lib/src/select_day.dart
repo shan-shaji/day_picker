@@ -14,7 +14,7 @@ class SelectWeekDays extends StatefulWidget {
   /// [fontWeight] - property to change the weight of selected text
   final FontWeight? fontWeight;
 
-  /// [textSize] - property to change the size of selected text
+  /// [fontSize] - property to change the size of selected text
   final  double? fontSize;
 
   /// [daysFillColor] -  property to change the button color of days when the button is pressed.
