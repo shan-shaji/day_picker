@@ -150,8 +150,8 @@ void handleOnSelect(List<String> value){
 | padding                | `double`        | Padding between container and the buttons [by default it is 8.0]                                                     |
 | boxdecoration          | `BoxDecoration` | provides variety of ways to style the background container[gradient, color, border radius]                           |
 | backgroundColor        | `Color`         | Property to change the color of the container                                                                        |
-| fontSize                | `TextStyle`        | Property to change size of font                                                                     |
-| fontWeight           | `FontWeight`         | Property to change the font weight of text                                             |
+| fontSize                | `TextStyle`     | Property to change size of font                                                                     |
+| fontWeight            | `FontWeight`       | Property to change the font weight of text                                             |
 | daysFillColor          | `Color`         | Property to change the color of rounded buttons when the days are selected                                           |
 | daysBorderColor        | `Color`         | Property to change the border color of rounded button                                                                |
 | selectedDayTextColor   | `Color`         | property to change the text color of the selected days                                                               |
