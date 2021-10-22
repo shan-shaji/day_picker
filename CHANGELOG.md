@@ -1,3 +1,6 @@
+## 2.1.0
+- Add `fontSize` and `fontWeight` property
+
 ## 2.0.0
 - Add Breaking Changes
 - Add new `days` property
