@@ -37,8 +37,8 @@ class HomePage extends StatelessWidget {
       "Fri",
     ),
     DayInWeek(
-      "Sat",
-      isSelected: true
+        "Sat",
+        isSelected: true
     ),
   ];
 
@@ -55,6 +55,8 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SelectWeekDays(
+              fontSize:14,
+              fontWeight: FontWeight.w500,
               days: _days,
               onSelect: (values) {
                 print(values);
@@ -64,6 +66,8 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SelectWeekDays(
+              fontSize:14,
+              fontWeight: FontWeight.w500,
               days: _days,
               border: false,
               boxDecoration: BoxDecoration(
@@ -76,7 +80,7 @@ class HomePage extends StatelessWidget {
                     const Color(0xFFBB75FB)
                   ], // whitish to gray
                   tileMode:
-                      TileMode.repeated, // repeats the gradient over the canvas
+                  TileMode.repeated, // repeats the gradient over the canvas
                 ),
               ),
               onSelect: (values) {
@@ -87,7 +91,9 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SelectWeekDays(
-  days: _days,
+              fontSize:14,
+              fontWeight: FontWeight.w500,
+              days: _days,
               boxDecoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30.0),
                 gradient: LinearGradient(
@@ -98,7 +104,7 @@ class HomePage extends StatelessWidget {
                     const Color(0xFFBB75FB)
                   ], // whitish to gray
                   tileMode:
-                      TileMode.repeated, // repeats the gradient over the canvas
+                  TileMode.repeated, // repeats the gradient over the canvas
                 ),
               ),
               onSelect: (values) {
@@ -107,6 +113,8 @@ class HomePage extends StatelessWidget {
             ),
           ),
           SelectWeekDays(
+            fontSize:14,
+            fontWeight: FontWeight.w500,
             days: _days,
             backgroundColor: Color(0xFF303030),
             onSelect: (values) {
@@ -116,6 +124,8 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SelectWeekDays(
+              fontSize:14,
+              fontWeight: FontWeight.w500,
               days: _days,
               border: false,
               backgroundColor: Color(0xFF303030),
@@ -127,6 +137,8 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SelectWeekDays(
+              fontSize:14,
+              fontWeight: FontWeight.w500,
               days: _days,
               border: false,
               boxDecoration: BoxDecoration(
