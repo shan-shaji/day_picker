@@ -11,6 +11,12 @@ class SelectWeekDays extends StatefulWidget {
   /// [backgroundColor] - property to change the color of the container.
   final Color? backgroundColor;
 
+  /// [fontWeight] - property to change the weight of selected text
+  final FontWeight? fontWeight;
+
+  /// [textSize] - property to change the size of selected text
+  final  double? fontSize;
+
   /// [daysFillColor] -  property to change the button color of days when the button is pressed.
   final Color? daysFillColor;
 
@@ -37,6 +43,8 @@ class SelectWeekDays extends StatefulWidget {
   SelectWeekDays({
     required this.onSelect,
     this.backgroundColor,
+    this.fontWeight,
+    this.fontSize,
     this.daysFillColor,
     this.daysBorderColor,
     this.selectedDayTextColor,
@@ -134,26 +142,26 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
     return Container(
       decoration: widget.boxDecoration == null
           ? BoxDecoration(
-              color: _handleBackgroundColor,
-              borderRadius: BorderRadius.circular(0),
-            )
+        color: _handleBackgroundColor,
+        borderRadius: BorderRadius.circular(0),
+      )
           : widget.boxDecoration,
       child: Padding(
         padding: EdgeInsets.all(widget.padding),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: _daysInWeek.map(
-            (day) {
+                (day) {
               return Expanded(
                 child: RawMaterialButton(
                   fillColor:
-                      day.isSelected == true ? _handleDaysFillColor : null,
+                  day.isSelected == true ? _handleDaysFillColor : null,
                   shape: CircleBorder(
                     side: widget.border
                         ? BorderSide(
-                            color: _handleBorderColorOfDays!,
-                            width: 2.0,
-                          )
+                      color: _handleBorderColorOfDays!,
+                      width: 2.0,
+                    )
                         : BorderSide.none,
                   ),
                   onPressed: () {
@@ -167,7 +175,8 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
                     child: Text(
                       day.dayName.substring(0, 3),
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                        fontSize: widget.fontSize,
+                        fontWeight: widget.fontWeight,
                         color: _handleTextColor(day.isSelected),
                       ),
                     ),
