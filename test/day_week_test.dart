@@ -10,4 +10,12 @@ void main() {
     expect(s.isSelected, false);
     expect(s.dayName, 'Tuesday');
   });
+
+  test('when called toggleSelected `false` will become `true`', () {
+    DayInWeek s = DayInWeek('Tuesday');
+
+    expect(s.isSelected, false);
+    s.toggleIsSelected();
+    expect(s.isSelected, true);
+  });
 }
