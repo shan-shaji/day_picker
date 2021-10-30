@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-
   List<DayInWeek> _days = [
     DayInWeek(
       "Sun",
@@ -36,12 +35,8 @@ class HomePage extends StatelessWidget {
     DayInWeek(
       "Fri",
     ),
-    DayInWeek(
-        "Sat",
-        isSelected: true
-    ),
+    DayInWeek("Sat", isSelected: true),
   ];
-
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +50,7 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SelectWeekDays(
-              fontSize:14,
+              fontSize: 14,
               fontWeight: FontWeight.w500,
               days: _days,
               onSelect: (values) {
@@ -66,7 +61,7 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SelectWeekDays(
-              fontSize:14,
+              fontSize: 14,
               fontWeight: FontWeight.w500,
               days: _days,
               border: false,
@@ -80,7 +75,7 @@ class HomePage extends StatelessWidget {
                     const Color(0xFFBB75FB)
                   ], // whitish to gray
                   tileMode:
-                  TileMode.repeated, // repeats the gradient over the canvas
+                      TileMode.repeated, // repeats the gradient over the canvas
                 ),
               ),
               onSelect: (values) {
@@ -91,7 +86,7 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SelectWeekDays(
-              fontSize:14,
+              fontSize: 14,
               fontWeight: FontWeight.w500,
               days: _days,
               boxDecoration: BoxDecoration(
@@ -104,7 +99,7 @@ class HomePage extends StatelessWidget {
                     const Color(0xFFBB75FB)
                   ], // whitish to gray
                   tileMode:
-                  TileMode.repeated, // repeats the gradient over the canvas
+                      TileMode.repeated, // repeats the gradient over the canvas
                 ),
               ),
               onSelect: (values) {
@@ -113,7 +108,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
           SelectWeekDays(
-            fontSize:14,
+            fontSize: 14,
             fontWeight: FontWeight.w500,
             days: _days,
             backgroundColor: Color(0xFF303030),
@@ -124,7 +119,7 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SelectWeekDays(
-              fontSize:14,
+              fontSize: 14,
               fontWeight: FontWeight.w500,
               days: _days,
               border: false,
@@ -137,7 +132,7 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SelectWeekDays(
-              fontSize:14,
+              fontSize: 14,
               fontWeight: FontWeight.w500,
               days: _days,
               border: false,
