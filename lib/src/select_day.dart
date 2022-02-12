@@ -173,7 +173,7 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      day.dayName.substring(0, 3),
+                      day.dayName.length < 3 ? day.dayName : day.dayName.substring(0, 3),
                       style: TextStyle(
                         fontSize: widget.fontSize,
                         fontWeight: widget.fontWeight,
