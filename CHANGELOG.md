@@ -1,3 +1,6 @@
+## 2.1.1
+- Fixed the range error issue
+
 ## 2.1.0
 - Add `fontSize` and `fontWeight` property
 
