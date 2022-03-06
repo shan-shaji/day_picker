@@ -6,7 +6,7 @@ class SelectWeekDays extends StatefulWidget {
   final Function onSelect;
 
   /// List of days of type `DayInWeek`
-  List<DayInWeek> days;
+  final List<DayInWeek> days;
 
   /// [backgroundColor] - property to change the color of the container.
   final Color? backgroundColor;
@@ -20,7 +20,7 @@ class SelectWeekDays extends StatefulWidget {
   /// [daysFillColor] -  property to change the button color of days when the button is pressed.
   final Color? daysFillColor;
 
-  /// [daysBorderColor] - property to change the bordercolor of the rounded buttons.
+  /// [daysBorderColor] - property to change the border color of the rounded buttons.
   final Color? daysBorderColor;
 
   /// [selectedDayTextColor] - property to change the color of text when the day is selected.
