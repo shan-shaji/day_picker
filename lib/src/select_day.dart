@@ -73,7 +73,7 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
   void initState() {
     _daysInWeek.forEach((element) {
       if (element.isSelected) {
-        selectedDays.add(element.dayName);
+        selectedDays.add(element.dayKey);
       }
     });
     super.initState();
@@ -168,7 +168,7 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
                     setState(() {
                       day.toggleIsSelected();
                     });
-                    _getSelectedWeekDays(day.isSelected, day.dayName);
+                    _getSelectedWeekDays(day.isSelected, day.dayKey);
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
