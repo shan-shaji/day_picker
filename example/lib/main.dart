@@ -19,26 +19,21 @@ class HomePage extends StatelessWidget {
   List<DayInWeek> _days = [
     DayInWeek(
       "Zo",
-      "monday"
     ),
     DayInWeek(
       "Ma",
-      "tuesday"
     ),
     DayInWeek(
       "Di",
-      "wednesday"
     ),
     DayInWeek(
       "Wo",
-      "thursday"
     ),
     DayInWeek(
       "Do",
-      "friday"
     ),
-    DayInWeek("Vr", "saturday",isSelected: true),
-    DayInWeek("Za", "sunday", isSelected: true),
+    DayInWeek("Vr", isSelected: true),
+    DayInWeek("Za", isSelected: true),
   ];
 
   @override
