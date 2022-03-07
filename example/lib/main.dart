@@ -1,5 +1,4 @@
 import 'package:day_picker/day_picker.dart';
-import 'package:day_picker/model/day_in_week.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,26 +18,26 @@ class HomePage extends StatelessWidget {
   List<DayInWeek> _days = [
     DayInWeek(
       "Zo",
-      "monday"
+      dayKey: "monday"
     ),
     DayInWeek(
       "Ma",
-      "tuesday"
+      dayKey: "tuesday"
     ),
     DayInWeek(
       "Di",
-      "wednesday"
+      dayKey: "wednesday"
     ),
     DayInWeek(
       "Wo",
-      "thursday"
+      dayKey: "thursday"
     ),
     DayInWeek(
       "Do",
-      "friday"
+      dayKey: "friday"
     ),
-    DayInWeek("Vr", "saturday",isSelected: true),
-    DayInWeek("Za", "sunday", isSelected: true),
+    DayInWeek("Vr", dayKey: "saturday",isSelected: true),
+    DayInWeek("Za", dayKey: "sunday", isSelected: true),
   ];
 
   @override
@@ -64,6 +63,7 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SelectWeekDays(
+              width: MediaQuery.of(context).size.width / 2,
               fontSize: 14,
               fontWeight: FontWeight.w500,
               days: _days,

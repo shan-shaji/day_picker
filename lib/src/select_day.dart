@@ -38,6 +38,10 @@ class SelectWeekDays extends StatefulWidget {
   /// [padding] property  to handle the padding between the container and buttons by default it is 8.0
   final double padding;
 
+  /// The property that can be used to specify the [width] of the [SelectWeekDays] container.
+  /// By default this property will take the full width of the screen.
+  final double? width;
+
   /// `SelectWeekDays` takes a list of days of type `DayInWeek`.
   /// `onSelect` property will return `list` of days that are selected.
   SelectWeekDays({
@@ -52,6 +56,7 @@ class SelectWeekDays extends StatefulWidget {
     this.border = true,
     this.boxDecoration,
     this.padding = 8.0,
+    this.width,
     required this.days,
     Key? key,
   }) : super(key: key);
@@ -140,6 +145,7 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: widget.width ?? MediaQuery.of(context).size.width,
       decoration: widget.boxDecoration == null
           ? BoxDecoration(
         color: _handleBackgroundColor,
