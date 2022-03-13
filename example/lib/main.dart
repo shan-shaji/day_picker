@@ -15,28 +15,13 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  List<DayInWeek> _days = [
-    DayInWeek(
-      "Zo",
-      dayKey: "monday"
-    ),
-    DayInWeek(
-      "Ma",
-      dayKey: "tuesday"
-    ),
-    DayInWeek(
-      "Di",
-      dayKey: "wednesday"
-    ),
-    DayInWeek(
-      "Wo",
-      dayKey: "thursday"
-    ),
-    DayInWeek(
-      "Do",
-      dayKey: "friday"
-    ),
-    DayInWeek("Vr", dayKey: "saturday",isSelected: true),
+  final List<DayInWeek> _days = [
+    DayInWeek("Zo", dayKey: "monday"),
+    DayInWeek("Ma", dayKey: "tuesday"),
+    DayInWeek("Di", dayKey: "wednesday"),
+    DayInWeek("Wo", dayKey: "thursday"),
+    DayInWeek("Do", dayKey: "friday"),
+    DayInWeek("Vr", dayKey: "saturday", isSelected: true),
     DayInWeek("Za", dayKey: "sunday", isSelected: true),
   ];
 
@@ -73,8 +58,12 @@ class HomePage extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   // 10% of the width, so there are ten blinds.
-                  colors: [const Color(0xFFE55CE4), const Color(0xFFBB75FB)], // whitish to gray
-                  tileMode: TileMode.repeated, // repeats the gradient over the canvas
+                  colors: [
+                    const Color(0xFFE55CE4),
+                    const Color(0xFFBB75FB)
+                  ], // whitish to gray
+                  tileMode:
+                      TileMode.repeated, // repeats the gradient over the canvas
                 ),
               ),
               onSelect: (values) {
@@ -93,8 +82,12 @@ class HomePage extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   // 10% of the width, so there are ten blinds.
-                  colors: [const Color(0xFFE55CE4), const Color(0xFFBB75FB)], // whitish to gray
-                  tileMode: TileMode.repeated, // repeats the gradient over the canvas
+                  colors: [
+                    const Color(0xFFE55CE4),
+                    const Color(0xFFBB75FB)
+                  ], // whitish to gray
+                  tileMode:
+                      TileMode.repeated, // repeats the gradient over the canvas
                 ),
               ),
               onSelect: (values) {

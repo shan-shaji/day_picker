@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:day_picker/model/day_in_week.dart';
 import 'package:flutter_test/flutter_test.dart';
 
