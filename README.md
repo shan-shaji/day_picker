@@ -36,8 +36,8 @@ Constructor for the `day_picker` is given below.
     SelectWeekDays({
     required this.onSelect,
     this.backgroundColor,
-    this.fontWeight
-    this.fontSize
+    this.fontWeight,
+    this.fontSize,
     this.daysFillColor,
     this.daysBorderColor,
     this.selectedDayTextColor,
@@ -91,9 +91,9 @@ Example here creates a `day_picker` with below style [with Gradient and no borde
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SelectWeekDays(
-            fontSize:14,
+            fontSize: 14,
             fontWeight: FontWeight.w500,
-            days: _days
+            days: _days,
             border: false,
             boxDecoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30.0),
@@ -101,16 +101,17 @@ Example here creates a `day_picker` with below style [with Gradient and no borde
                 begin: Alignment.topLeft,
                 colors: [const Color(0xFFE55CE4), const Color(0xFFBB75FB)],
                 tileMode:
-                    TileMode.repeated, // repeats the gradient over the canvas
+                TileMode.repeated, // repeats the gradient over the canvas
               ),
             ),
             onSelect: (values) { // <== Callback to handle the selected days
-                print(values);
+              print(values);
             },
           ),
         ),
       ),
     );
+  }
 ```
 
 Pass a callback to the `onSelect` property with parameter of type `List<String>`.
