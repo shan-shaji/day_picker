@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:day_picker/model/day_in_week.dart';
+import 'package:flutter/material.dart';
 
 class SelectWeekDays extends StatefulWidget {
   /// [onSelect] callBack to handle the Selected days
@@ -58,15 +58,15 @@ class SelectWeekDays extends StatefulWidget {
     this.padding = 8.0,
     this.width,
     required this.days,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
-  _SelectWeekDaysState createState() => _SelectWeekDaysState(days);
+  SelectWeekDaysState createState() => SelectWeekDaysState(days);
 }
 
-class _SelectWeekDaysState extends State<SelectWeekDays> {
-  _SelectWeekDaysState(List<DayInWeek> days) : _daysInWeek = days;
+class SelectWeekDaysState extends State<SelectWeekDays> {
+  SelectWeekDaysState(List<DayInWeek> days) : _daysInWeek = days;
 
   // list to insert the selected days.
   List<String> selectedDays = [];
@@ -82,6 +82,13 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
       }
     });
     super.initState();
+  }
+
+  /// Set days to new value
+  void setDaysState(List<DayInWeek> newDays) {
+    setState(() {
+      _daysInWeek = newDays;
+    });
   }
 
   void _getSelectedWeekDays(bool isSelected, String day) {
@@ -101,7 +108,7 @@ class _SelectWeekDaysState extends State<SelectWeekDays> {
 // getter to handle background color of container.
   Color? get _handleBackgroundColor {
     if (widget.backgroundColor == null) {
-      return Theme.of(context).accentColor;
+      return Theme.of(context).colorScheme.secondary;
     } else {
       return widget.backgroundColor;
     }
