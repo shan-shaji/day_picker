@@ -86,6 +86,12 @@ class SelectWeekDaysState extends State<SelectWeekDays> {
 
   /// Set days to new value
   void setDaysState(List<DayInWeek> newDays) {
+    selectedDays = [];
+    for (DayInWeek dayInWeek in newDays) {
+      if (dayInWeek.isSelected) {
+        selectedDays.add(dayInWeek.dayKey);
+      }
+    }
     setState(() {
       _daysInWeek = newDays;
     });
@@ -169,8 +175,7 @@ class SelectWeekDaysState extends State<SelectWeekDays> {
             (day) {
               return Expanded(
                 child: RawMaterialButton(
-                  fillColor:
-                      day.isSelected == true ? _handleDaysFillColor : null,
+                  fillColor: day.isSelected ? _handleDaysFillColor : null,
                   shape: CircleBorder(
                     side: widget.border
                         ? BorderSide(
