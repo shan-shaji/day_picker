@@ -122,13 +122,11 @@ Pass a list of days of type `DayInWeek` into `days` property
 
 ```dart
 class DayInWeek {
-
   String dayName;
   bool isSelected = false;
 
   DayInWeek(this.dayName, {this.isSelected = false});
 }
-
 ```
 
 `DayInWeek` consist of two Properties [dayName] and [isSelected].
@@ -162,6 +160,9 @@ void handleOnSelect(List<String> value){
 | unSelectedDayTextColor | `Color`         | property to change the text color when the days are not selected                                                     |
 | border                 | `bool`          | Set this property to false if border is not needed around the rounded buttons[by default this property will be true] |
 
-## Contributions
+With the implementation of the `setDaysState` method, developers can dynamically modify which days are selected within their application's code, even after the `SelectWeekDays` widget has already been constructed. 
+By utilizing the Global Key that is passed into the widget, one can easily update the selected dates as desired.
 
+
+## Contributions
 Contributions of any kind are more than welcome😊! Feel free to fork and improve `day_picker` or open an issue.
