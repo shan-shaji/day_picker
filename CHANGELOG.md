@@ -1,3 +1,6 @@
+## 2.2.0
+- Allows developers to dynamically select days using the setDaysState method after construction of the SelectWeekDays widget
+
 ## 2.1.1
 - Fixed the range error issue
 
