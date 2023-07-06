@@ -61,10 +61,10 @@ class HomePage extends StatelessWidget {
               onSelect: (values) {
                 print(values);
               },
-              backgroundColor: Colors.transparent,
+              backgroundColor: Colors.blue,
               selectedDayTextColor: Colors.green,
               selectedDaysFillColor: Colors.red,
-              unselectedDaysFillColor: Colors.blue,
+              unselectedDaysFillColor: Colors.brown,
               selectedDaysBorderColor: Colors.deepPurple,
               unselectedDaysBorderColor: Colors.yellow,
               unSelectedDayTextColor: Colors.pink,
