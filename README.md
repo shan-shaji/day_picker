@@ -4,9 +4,9 @@ A Flutter widget library which helps us to select days in a week.
 
 [![Test, Build and deploy](https://github.com/shan-shaji/day_picker/actions/workflows/main.yaml/badge.svg)](https://github.com/shan-shaji/day_picker/actions/workflows/main.yaml)
 [![Build Status](https://app.bitrise.io/app/013db1e886b74200/status.svg?token=_0SuAtQgrBJ6mbmaQ6_7YA&branch=master)](https://app.bitrise.io/app/013db1e886b74200)
-[![likes](https://badges.bar/day_picker/likes)](https://pub.dev/packages/day_picker)
-[![popularity](https://badges.bar/day_picker/popularity)](https://pub.dev/packages/day_picker/score)
-[![pub points](https://badges.bar/day_picker/pub%20points)](https://pub.dev/packages/day_picker/score)
+[![likes](https://img.shields.io/pub/likes/day_picker)](https://pub.dev/packages/day_picker)
+[![popularity](https://img.shields.io/pub/popularity/day_picker)](https://pub.dev/packages/day_picker/score)
+[![pub points](https://img.shields.io/pub/points/day_picker)](https://pub.dev/packages/day_picker/score)
 ## Screenshot
 
 <p>
@@ -21,7 +21,7 @@ Add `day_picker` to your `pubspec.yaml` file.
 ```dependencies:
     flutter:
       sdk: flutter
-    day_picker: 2.1.0
+    day_picker: 2.2.0
 ```
 
 import the package:
@@ -122,13 +122,11 @@ Pass a list of days of type `DayInWeek` into `days` property
 
 ```dart
 class DayInWeek {
-
   String dayName;
   bool isSelected = false;
 
   DayInWeek(this.dayName, {this.isSelected = false});
 }
-
 ```
 
 `DayInWeek` consist of two Properties [dayName] and [isSelected].
@@ -162,6 +160,9 @@ void handleOnSelect(List<String> value){
 | unSelectedDayTextColor | `Color`         | property to change the text color when the days are not selected                                                     |
 | border                 | `bool`          | Set this property to false if border is not needed around the rounded buttons[by default this property will be true] |
 
-## Contributions
+With the implementation of the `setDaysState` method, developers can dynamically modify which days are selected within their application's code, even after the `SelectWeekDays` widget has already been constructed. 
+By utilizing the Global Key that is passed into the widget, one can easily update the selected dates as desired.
 
+
+## Contributions
 Contributions of any kind are more than welcome😊! Feel free to fork and improve `day_picker` or open an issue.

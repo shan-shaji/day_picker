@@ -27,6 +27,24 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customWidgetKey = new GlobalKey<SelectWeekDaysState>();
+
+    SelectWeekDays selectWeekDays = SelectWeekDays(
+      key: customWidgetKey,
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+      days: _days,
+      border: false,
+      width: MediaQuery.of(context).size.width / 1.4,
+      boxDecoration: BoxDecoration(
+        color: Colors.red,
+        borderRadius: BorderRadius.circular(30.0),
+      ),
+      onSelect: (values) {
+        print(values);
+      },
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Select days in week"),
@@ -117,21 +135,24 @@ class HomePage extends StatelessWidget {
               },
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SelectWeekDays(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-              days: _days,
-              border: false,
-              boxDecoration: BoxDecoration(
-                color: Colors.red,
-                borderRadius: BorderRadius.circular(30.0),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: selectWeekDays,
               ),
-              onSelect: (values) {
-                print(values);
-              },
-            ),
+              Container(
+                color: Colors.green.withOpacity(0.4),
+                child: TextButton(
+                  onPressed: () {
+                    List<DayInWeek> offAllDays =
+                        List.from(_days.map((e) => e..isSelected = false));
+                    customWidgetKey.currentState?.setDaysState(offAllDays);
+                  },
+                  child: Text('Days off'),
+                ),
+              ),
+            ],
           ),
         ],
       ),
