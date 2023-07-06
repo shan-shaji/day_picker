@@ -17,11 +17,17 @@ class SelectWeekDays extends StatefulWidget {
   /// [fontSize] - property to change the size of selected text
   final double? fontSize;
 
-  /// [daysFillColor] -  property to change the button color of days when the button is pressed.
-  final Color? daysFillColor;
+  /// [selectedDaysFillColor] -  property to change the button color of days when the button is selected.
+  final Color? selectedDaysFillColor;
 
-  /// [daysBorderColor] - property to change the border color of the rounded buttons.
-  final Color? daysBorderColor;
+  /// [unselectedDaysFillColor] -  property to change the button color of days when the button is not selected.
+  final Color? unselectedDaysFillColor;
+
+  /// [selectedDaysBorderColor] - property to change the border color of the rounded buttons when day is selected.
+  final Color? selectedDaysBorderColor;
+
+  /// [unselectedDaysBorderColor] - property to change the border color of the rounded buttons when day is unselected.
+  final Color? unselectedDaysBorderColor;
 
   /// [selectedDayTextColor] - property to change the color of text when the day is selected.
   final Color? selectedDayTextColor;
@@ -49,8 +55,10 @@ class SelectWeekDays extends StatefulWidget {
     this.backgroundColor,
     this.fontWeight,
     this.fontSize,
-    this.daysFillColor,
-    this.daysBorderColor,
+    this.selectedDaysFillColor,
+    this.unselectedDaysFillColor,
+    this.selectedDaysBorderColor,
+    this.unselectedDaysBorderColor,
     this.selectedDayTextColor,
     this.unSelectedDayTextColor,
     this.border = true,
@@ -121,40 +129,57 @@ class SelectWeekDaysState extends State<SelectWeekDays> {
   }
 
 // getter to handle fill color of buttons.
-  Color? get _handleDaysFillColor {
-    if (widget.daysFillColor == null) {
-      return Colors.white;
-    } else {
-      return widget.daysFillColor;
+  Color? _handleDaysFillColor(bool onSelect) {
+    if (!onSelect && widget.unselectedDaysFillColor == null) {
+      return null;
     }
+
+    return selectedUnselectedLogic(
+      onSelect: onSelect,
+      selectedColor: widget.selectedDaysFillColor,
+      unSelectedColor: widget.unselectedDaysFillColor,
+      defaultSelectedColor: Colors.white,
+      defaultUnselectedColor: Colors.white,
+    );
   }
 
 //getter to handle border color of days[buttons].
-  Color? get _handleBorderColorOfDays {
-    if (widget.daysBorderColor == null) {
-      return Colors.white;
-    } else {
-      return widget.daysBorderColor;
-    }
+  Color _handleBorderColorOfDays(bool onSelect) {
+    return selectedUnselectedLogic(
+      onSelect: onSelect,
+      selectedColor: widget.selectedDaysBorderColor,
+      unSelectedColor: widget.unselectedDaysBorderColor,
+      defaultSelectedColor: Colors.white,
+      defaultUnselectedColor: Colors.white,
+    );
   }
 
 // Handler to change the text color when the button is pressed and not pressed.
   Color? _handleTextColor(bool onSelect) {
-    Color? textColor = Colors.black;
-    if (onSelect == true) {
-      if (widget.selectedDayTextColor == null) {
-        textColor = Colors.black;
-      } else {
-        textColor = widget.selectedDayTextColor;
-      }
-    } else if (onSelect == false) {
-      if (widget.unSelectedDayTextColor == null) {
-        textColor = Colors.white;
-      } else {
-        textColor = widget.unSelectedDayTextColor;
-      }
+    return selectedUnselectedLogic(
+      onSelect: onSelect,
+      selectedColor: widget.selectedDayTextColor,
+      unSelectedColor: widget.unSelectedDayTextColor,
+      defaultSelectedColor: Colors.black,
+      defaultUnselectedColor: Colors.white,
+    );
+  }
+
+  Color selectedUnselectedLogic({
+    required bool onSelect,
+    required Color? selectedColor,
+    required Color? unSelectedColor,
+    required Color defaultSelectedColor,
+    required Color defaultUnselectedColor,
+  }) {
+    Color finalColor;
+    if (onSelect) {
+      finalColor = selectedColor != null ? selectedColor : defaultSelectedColor;
+    } else {
+      finalColor =
+          unSelectedColor != null ? unSelectedColor : defaultUnselectedColor;
     }
-    return textColor;
+    return finalColor;
   }
 
   @override
@@ -175,11 +200,11 @@ class SelectWeekDaysState extends State<SelectWeekDays> {
             (day) {
               return Expanded(
                 child: RawMaterialButton(
-                  fillColor: day.isSelected ? _handleDaysFillColor : null,
+                  fillColor: _handleDaysFillColor(day.isSelected),
                   shape: CircleBorder(
                     side: widget.border
                         ? BorderSide(
-                            color: _handleBorderColorOfDays!,
+                            color: _handleBorderColorOfDays(day.isSelected),
                             width: 2.0,
                           )
                         : BorderSide.none,

@@ -61,6 +61,13 @@ class HomePage extends StatelessWidget {
               onSelect: (values) {
                 print(values);
               },
+              backgroundColor: Colors.transparent,
+              selectedDayTextColor: Colors.green,
+              selectedDaysFillColor: Colors.red,
+              unselectedDaysFillColor: Colors.blue,
+              selectedDaysBorderColor: Colors.deepPurple,
+              unselectedDaysBorderColor: Colors.yellow,
+              unSelectedDayTextColor: Colors.pink,
             ),
           ),
           Padding(
