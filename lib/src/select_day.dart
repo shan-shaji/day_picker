@@ -172,14 +172,10 @@ class SelectWeekDaysState extends State<SelectWeekDays> {
     required Color defaultSelectedColor,
     required Color defaultUnselectedColor,
   }) {
-    Color finalColor;
     if (onSelect) {
-      finalColor = selectedColor != null ? selectedColor : defaultSelectedColor;
-    } else {
-      finalColor =
-          unSelectedColor != null ? unSelectedColor : defaultUnselectedColor;
+      return selectedColor != null ? selectedColor : defaultSelectedColor;
     }
-    return finalColor;
+    return unSelectedColor != null ? unSelectedColor : defaultUnselectedColor;
   }
 
   @override
