@@ -3,14 +3,14 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('By default isSelected will be false', () {
-    DayInWeek s = DayInWeek('Tuesday', dayKey: 'tuesday');
+    final s = DayInWeek('Tuesday', dayKey: 'tuesday');
 
     expect(s.isSelected, false);
     expect(s.dayName, 'Tuesday');
   });
 
   test('when called toggleSelected `false` will become `true`', () {
-    DayInWeek s = DayInWeek('Tuesday', dayKey: 'tuesday');
+    final s = DayInWeek('Tuesday', dayKey: 'tuesday');
 
     expect(s.isSelected, false);
     s.toggleIsSelected();

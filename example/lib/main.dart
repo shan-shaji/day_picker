@@ -73,7 +73,7 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SelectWeekDays(
-              width: MediaQuery.of(context).size.width / 2,
+              width: MediaQuery.of(context).size.width,
               fontSize: 14,
               fontWeight: FontWeight.w500,
               days: _days,
