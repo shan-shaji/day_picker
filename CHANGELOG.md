@@ -1,3 +1,8 @@
+## 2.3.0
+- Expose `elevation` and `borderWidth` properties.
+- **Refactor**: add very good analysis.
+- Requires `dart >= 3.0.0` and `Flutter >= 3.10.0`.
+
 ## 2.2.0
 - Allows developers to dynamically select days using the setDaysState method after construction of the SelectWeekDays widget
 
