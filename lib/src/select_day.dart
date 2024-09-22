@@ -48,6 +48,12 @@ class SelectWeekDays extends StatefulWidget {
   /// By default this property will take the full width of the screen.
   final double? width;
 
+  /// [borderWidth] property  to handle the width border of the container by default it is 2.0
+  final double? borderWidth;
+
+  /// [elevation] property  to change the elevation of  RawMaterialButton  by default it is 2.0
+  final double? elevation;
+
   /// `SelectWeekDays` takes a list of days of type `DayInWeek`.
   /// `onSelect` property will return `list` of days that are selected.
   SelectWeekDays({
@@ -65,6 +71,8 @@ class SelectWeekDays extends StatefulWidget {
     this.boxDecoration,
     this.padding = 8.0,
     this.width,
+    this.borderWidth,
+    this.elevation,
     required this.days,
     super.key,
   });
@@ -201,10 +209,11 @@ class SelectWeekDaysState extends State<SelectWeekDays> {
                     side: widget.border
                         ? BorderSide(
                             color: _handleBorderColorOfDays(day.isSelected),
-                            width: 2.0,
+                            width: widget.borderWidth ?? 2.0,
                           )
                         : BorderSide.none,
                   ),
+                  elevation: widget.elevation ?? 2.0,
                   onPressed: () {
                     setState(() {
                       day.toggleIsSelected();
