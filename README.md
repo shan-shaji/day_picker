@@ -21,7 +21,7 @@ Add `day_picker` to your `pubspec.yaml` file.
 ```dependencies:
     flutter:
       sdk: flutter
-    day_picker: 2.2.0
+    day_picker: 2.3.0
 ```
 
 import the package:
@@ -33,21 +33,26 @@ import 'package:day_picker/day_picker.dart';
 Constructor for the `day_picker` is given below.
 
 ```dart
-    SelectWeekDays({
-    required this.onSelect,
-    this.backgroundColor,
-    this.fontWeight,
-    this.fontSize,
-    this.daysFillColor,
-    this.daysBorderColor,
-    this.selectedDayTextColor,
-    this.unSelectedDayTextColor,
-    this.border = true,
-    this.boxDecoration,
-    this.padding = 8.0,
-    required this.days,
-    Key? key,
-  }) : super(key: key);
+      const SelectWeekDays({
+        required this.onSelect,
+        required this.days,
+        this.backgroundColor,
+        this.fontWeight,
+        this.fontSize,
+        this.selectedDaysFillColor,
+        this.unselectedDaysFillColor,
+        this.selectedDaysBorderColor,
+        this.unselectedDaysBorderColor,
+        this.selectedDayTextColor,
+        this.unSelectedDayTextColor,
+        this.border = true,
+        this.boxDecoration,
+        this.padding = 8.0,
+        this.width,
+        this.borderWidth,
+        this.elevation = 2.0,
+        super.key,
+      });
 ```
 
 Example here creates a `day_picker` with below style [with Gradient and no borders].
@@ -56,29 +61,14 @@ Example here creates a `day_picker` with below style [with Gradient and no borde
 
 ```dart
 
-    List<DayInWeek> _days = [
-    DayInWeek(
-      "Sun",
-    ),
-    DayInWeek(
-      "Mon",
-    ),
-    DayInWeek(
-      "Tue",
-      isSelected: true
-    ),
-    DayInWeek(
-      "Wed",
-    ),
-    DayInWeek(
-      "Thu",
-    ),
-    DayInWeek(
-      "Fri",
-    ),
-    DayInWeek(
-      "Sat",
-    ),
+  final List<DayInWeek> _days = [
+    DayInWeek("Zo", dayKey: "monday"),
+    DayInWeek("Ma", dayKey: "tuesday"),
+    DayInWeek("Di", dayKey: "wednesday"),
+    DayInWeek("Wo", dayKey: "thursday"),
+    DayInWeek("Do", dayKey: "friday"),
+    DayInWeek("Vr", dayKey: "saturday", isSelected: true),
+    DayInWeek("Za", dayKey: "sunday", isSelected: true),
   ];
 
   @override
@@ -91,20 +81,17 @@ Example here creates a `day_picker` with below style [with Gradient and no borde
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SelectWeekDays(
+            key: customWidgetKey,
             fontSize: 14,
             fontWeight: FontWeight.w500,
             days: _days,
             border: false,
+            width: MediaQuery.of(context).size.width / 1.4,
             boxDecoration: BoxDecoration(
+              color: Colors.red,
               borderRadius: BorderRadius.circular(30.0),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                colors: [const Color(0xFFE55CE4), const Color(0xFFBB75FB)],
-                tileMode:
-                TileMode.repeated, // repeats the gradient over the canvas
-              ),
             ),
-            onSelect: (values) { // <== Callback to handle the selected days
+            onSelect: (values) {
               print(values);
             },
           ),
@@ -122,14 +109,19 @@ Pass a list of days of type `DayInWeek` into `days` property
 
 ```dart
 class DayInWeek {
-  String dayName;
-  bool isSelected = false;
+  DayInWeek(
+      this.dayName, {
+        required this.dayKey,
+        this.isSelected = false,
+      });
 
-  DayInWeek(this.dayName, {this.isSelected = false});
+  String dayName;
+  String dayKey;
+  bool isSelected = false;
 }
 ```
 
-`DayInWeek` consist of two Properties [dayName] and [isSelected].
+`DayInWeek` consist of three Properties [dayName], [dayKey] and [isSelected].
 By default [isSelected] value will be `false`
 
 ---
@@ -137,9 +129,9 @@ By default [isSelected] value will be `false`
 Example:
 
 ```dart
-void handleOnSelect(List<String> value){
+void handleOnSelect(List<String> days){
     //TODO: Manipulate the List of days selected
-    print(value);
+    print(days);
 }
 ```
 
