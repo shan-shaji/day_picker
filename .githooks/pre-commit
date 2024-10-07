@@ -13,10 +13,22 @@ else
 	exit 1
 fi
 
+# Check if flutter is available
+if command -v flutter &> /dev/null
+then
+	FLUTTER_COMMAND="flutter"
+else
+	echo "Error: Failed to find flutter in your path"
+	exit 1
+fi
+
+
 DART_FORMAT_COMMAND="${DART_COMMAND} format -l 80"
+ANALYZE_COMMAND="${FLUTTER_COMMAND} analyze"
 
 # Initialize empty strings to store files that fail formatting
 FILES_NEEDING_FORMAT=""
+FILES_WITH_ANALYSIS_ISSUES=""
 
 # Get changed files from git
 CHANGED_FILES=$(git diff --name-only origin/${BRANCH_DEST})
@@ -43,6 +55,13 @@ do
         if [ $FORMAT_EXIT_CODE -ne 0 ]; then
             FILES_NEEDING_FORMAT="${FILES_NEEDING_FORMAT}\n$FILE"
         fi
+
+        # Check for analysis issues
+        ${ANALYZE_COMMAND} "${FILE}" --fatal-infos --fatal-warnings
+        ANALYZE_EXIT_CODE=$?
+        if [ $ANALYZE_EXIT_CODE -ne 0 ]; then
+            FILES_WITH_ANALYSIS_ISSUES="${FILES_WITH_ANALYSIS_ISSUES}\n$FILE"
+        fi
     done
 done
 
@@ -51,8 +70,13 @@ if [ ! -z "$FILES_NEEDING_FORMAT" ]; then
     echo -e "\nThe following files need formatting:\n$FILES_NEEDING_FORMAT\n"
 fi
 
+# Report analysis issues
+if [ ! -z "$FILES_WITH_ANALYSIS_ISSUES" ]; then
+    echo -e "\nThe following files have analysis issues:\n$FILES_WITH_ANALYSIS_ISSUES\n"
+fi
+
 # If any issues are found, exit with error code
-if [ ! -z "$FILES_NEEDING_FORMAT" ] ; then
+if [ ! -z "$FILES_NEEDING_FORMAT" ] || [ ! -z "$FILES_WITH_ANALYSIS_ISSUES" ]; then
     exit 1
 else
     echo "No formatting or analysis issues found in the changed files."
